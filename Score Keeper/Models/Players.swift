@@ -21,4 +21,4 @@ class Player: Comparable {
     
 }
 
-var listOfPlayers: [Player] = []
+var listOfPlayers: [Player] = [Player()]

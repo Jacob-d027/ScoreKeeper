@@ -12,9 +12,7 @@ class PlayersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if listOfPlayers.isEmpty {
-            
-        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,9 +41,13 @@ class PlayersTableViewController: UITableViewController {
         cell.playerNameLabel.text = playerAtRow.name
         cell.scoreCountLabel.text = String(playerAtRow.score)
         
+        
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 
     /*
     // Override to support conditional editing of the table view.
