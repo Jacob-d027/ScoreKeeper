@@ -13,6 +13,9 @@
 		F2937C372AFAD58200A1FBAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2937C352AFAD58200A1FBAB /* Main.storyboard */; };
 		F2937C392AFAD58400A1FBAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2937C382AFAD58400A1FBAB /* Assets.xcassets */; };
 		F2937C3C2AFAD58400A1FBAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2937C3A2AFAD58400A1FBAB /* LaunchScreen.storyboard */; };
+		F2937C442AFBD2B500A1FBAB /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2937C432AFBD2B500A1FBAB /* PlayersTableViewController.swift */; };
+		F2937C482AFBD6C900A1FBAB /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2937C472AFBD6C900A1FBAB /* Players.swift */; };
+		F2937C4B2AFBDFEC00A1FBAB /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2937C4A2AFBDFEC00A1FBAB /* PlayerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		F2937C382AFAD58400A1FBAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2937C3B2AFAD58400A1FBAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2937C3D2AFAD58400A1FBAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2937C432AFBD2B500A1FBAB /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
+		F2937C472AFBD6C900A1FBAB /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		F2937C4A2AFBDFEC00A1FBAB /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		F2937C2E2AFAD58200A1FBAB /* Score Keeper */ = {
 			isa = PBXGroup;
 			children = (
-				F2937C2F2AFAD58200A1FBAB /* AppDelegate.swift */,
-				F2937C312AFAD58200A1FBAB /* SceneDelegate.swift */,
-				F2937C332AFAD58200A1FBAB /* ViewController.swift */,
+				F2937C462AFBD6A900A1FBAB /* Resources */,
+				F2937C452AFBD66F00A1FBAB /* Views */,
 				F2937C352AFAD58200A1FBAB /* Main.storyboard */,
+				F2937C492AFBD6CE00A1FBAB /* Models */,
 				F2937C382AFAD58400A1FBAB /* Assets.xcassets */,
-				F2937C3A2AFAD58400A1FBAB /* LaunchScreen.storyboard */,
 				F2937C3D2AFAD58400A1FBAB /* Info.plist */,
 			);
 			path = "Score Keeper";
+			sourceTree = "<group>";
+		};
+		F2937C452AFBD66F00A1FBAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2937C332AFAD58200A1FBAB /* ViewController.swift */,
+				F2937C432AFBD2B500A1FBAB /* PlayersTableViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F2937C462AFBD6A900A1FBAB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F2937C2F2AFAD58200A1FBAB /* AppDelegate.swift */,
+				F2937C312AFAD58200A1FBAB /* SceneDelegate.swift */,
+				F2937C3A2AFAD58400A1FBAB /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F2937C492AFBD6CE00A1FBAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2937C472AFBD6C900A1FBAB /* Players.swift */,
+				F2937C4A2AFBDFEC00A1FBAB /* PlayerTableViewCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +171,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2937C4B2AFBDFEC00A1FBAB /* PlayerTableViewCell.swift in Sources */,
+				F2937C442AFBD2B500A1FBAB /* PlayersTableViewController.swift in Sources */,
+				F2937C482AFBD6C900A1FBAB /* Players.swift in Sources */,
 				F2937C342AFAD58200A1FBAB /* ViewController.swift in Sources */,
 				F2937C302AFAD58200A1FBAB /* AppDelegate.swift in Sources */,
 				F2937C322AFAD58200A1FBAB /* SceneDelegate.swift in Sources */,
