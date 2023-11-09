@@ -11,7 +11,7 @@ class PlayerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var scoreCountLabel: UILabel!
-    @IBOutlet weak var playerStepper: UIStepper!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +23,14 @@ class PlayerTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func stepperWasTapped(_ sender: UIStepper) {
+        if let scoreAsDouble = Double(scoreCountLabel.text ?? "0") {
+            
+        }
+        print(sender.value)
+        
+    }
+    
 
 }
