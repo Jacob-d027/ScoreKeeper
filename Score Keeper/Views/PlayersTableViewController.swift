@@ -87,10 +87,12 @@ class PlayersTableViewController: UITableViewController {
     
     // MARK: - Navigation
 
-     @IBSegueAction func addNewPlayer(_ coder: NSCoder, sender: Any?) -> ViewController? {
-     return <#ViewController(coder: coder)#>
-     }
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    @IBSegueAction func addNewPlayer(_ coder: NSCoder, sender: Any?) -> ViewController? {
+        
+        return ViewController(coder: coder, player: nil)
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -98,3 +100,10 @@ class PlayersTableViewController: UITableViewController {
     
 
 }
+
+
+//guard let selectedRow = tableView.indexPathForSelectedRow else { return nil }
+//let selectedPlayer = listOfPlayers[selectedRow.row]
+//
+//tableView.deselectRow(at: selectedRow, animated: true)
+//return ViewController(coder: coder, player: selectedPlayer)

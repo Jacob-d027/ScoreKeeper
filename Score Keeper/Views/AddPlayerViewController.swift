@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var player: Player?
     
     init?(coder: NSCoder, player: Player?) {
+        super.init(coder: coder)
         self.player = player
     }
     

@@ -47,9 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				F2937C2E2AFAD58200A1FBAB /* Score Keeper */,
-				F2937C352AFAD58200A1FBAB /* Main.storyboard */,
-				F2937C3D2AFAD58400A1FBAB /* Info.plist */,
-				F2937C382AFAD58400A1FBAB /* Assets.xcassets */,
 				F2937C2D2AFAD58200A1FBAB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,9 +62,12 @@
 		F2937C2E2AFAD58200A1FBAB /* Score Keeper */ = {
 			isa = PBXGroup;
 			children = (
-				F2937C462AFBD6A900A1FBAB /* Resources */,
 				F2937C452AFBD66F00A1FBAB /* Views */,
 				F2937C492AFBD6CE00A1FBAB /* Models */,
+				F2937C462AFBD6A900A1FBAB /* Resources */,
+				F2937C352AFAD58200A1FBAB /* Main.storyboard */,
+				F2937C3D2AFAD58400A1FBAB /* Info.plist */,
+				F2937C382AFAD58400A1FBAB /* Assets.xcassets */,
 			);
 			path = "Score Keeper";
 			sourceTree = "<group>";
