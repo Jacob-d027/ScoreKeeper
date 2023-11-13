@@ -23,8 +23,8 @@ class PlayersTableViewController: UITableViewController, PlayerTableViewCellDele
 
     // MARK: - Table view data source
     
-    func stepperDidTap(in cell: PlayerTableViewCell, with value: Double) {
-        guard let playerName = cell.playerNameLabel.text, let playerIndex = listOfPlayers.firstIndex(where: { $0.name == playerName}) else {
+    func stepperDidTap(in cell: PlayerTableViewCell, with value: Double, playerId: UUID) {
+        guard let playerIndex = listOfPlayers.firstIndex(where: { $0.id == playerId}) else {
             return
         }
         // Find player in table view and update score
@@ -45,8 +45,8 @@ class PlayersTableViewController: UITableViewController, PlayerTableViewCellDele
         // Sort the player list by highest score and update tableview
         listOfPlayers.sort(by: >)
         tableView.reloadData()
-        
     }
+
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -65,8 +65,7 @@ class PlayersTableViewController: UITableViewController, PlayerTableViewCellDele
         // Configure the cell...
         let playerAtRow = listOfPlayers[indexPath.row]
         cell.delegate = self
-        cell.playerNameLabel.text = playerAtRow.name
-        cell.scoreCountLabel.text = String(playerAtRow.score)
+        cell.configure(with: playerAtRow)
         
         
         return cell

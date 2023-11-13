@@ -171,6 +171,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Scoreboard" id="IDP-LY-vRN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="LUh-bG-MAK"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bRe-9u-jnk">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="addNewPlayer" destinationCreationSelector="addNewPlayer:sender:" id="w7w-It-M1H"/>
