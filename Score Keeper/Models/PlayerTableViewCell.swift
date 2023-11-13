@@ -29,10 +29,10 @@ class PlayerTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
     @IBAction func stepperWasTapped(_ sender: UIStepper) {
         delegate?.stepperDidTap(in: self, with: sender.value)
         sender.value = 0
     }
     
-
 }

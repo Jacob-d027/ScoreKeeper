@@ -7,7 +7,8 @@
 
 import UIKit
 
-class PlayersTableViewController: UITableViewController {
+class PlayersTableViewController: UITableViewController, PlayerTableViewCellDelegate {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,31 @@ class PlayersTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    func stepperDidTap(in cell: PlayerTableViewCell, with value: Double) {
+        guard let playerName = cell.playerNameLabel.text, let playerIndex = listOfPlayers.firstIndex(where: { $0.name == playerName}) else {
+            return
+        }
+        // Find player in table view and update score
+        var playerToUpdate = listOfPlayers[playerIndex]
+        playerToUpdate.score += Int(value)
+        
+        // Actually updating the player in the list
+        listOfPlayers[playerIndex] = playerToUpdate
+        
+        // Update the cell's labels and TableView accordingly
+        cell.scoreCountLabel.text = String(playerToUpdate.score)
+        
+        // Reload the corresponding cell in the table view
+        if let indexPath = tableView.indexPath(for: cell) {
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
+        // Sort the player list by highest score and update tableview
+        listOfPlayers.sort(by: >)
+        tableView.reloadData()
+        
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -32,12 +58,13 @@ class PlayersTableViewController: UITableViewController {
         return listOfPlayers.count
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as! PlayerTableViewCell
 
         // Configure the cell...
         let playerAtRow = listOfPlayers[indexPath.row]
+        cell.delegate = self
         cell.playerNameLabel.text = playerAtRow.name
         cell.scoreCountLabel.text = String(playerAtRow.score)
         
@@ -49,46 +76,10 @@ class PlayersTableViewController: UITableViewController {
         return UITableView.automaticDimension
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 
     @IBSegueAction func addNewPlayer(_ coder: NSCoder, sender: Any?) -> ViewController? {
-        
         return ViewController(coder: coder, player: nil)
     }
     
@@ -98,7 +89,7 @@ class PlayersTableViewController: UITableViewController {
         let player = sourceVC.player  else { return }
         
         listOfPlayers.append(player)
-//        tableView.insertRows(at: [IndexPath(row: (listOfPlayers.count - 1), section: 0)], with: .automatic)
+
         listOfPlayers.sort(by: >)
         tableView.reloadData()
 //        tableView.reloadRows(at: [], with: .automatic)
@@ -122,8 +113,4 @@ class PlayersTableViewController: UITableViewController {
 }
 
 
-//guard let selectedRow = tableView.indexPathForSelectedRow else { return nil }
-//let selectedPlayer = listOfPlayers[selectedRow.row]
-//
-//tableView.deselectRow(at: selectedRow, animated: true)
-//return ViewController(coder: coder, player: selectedPlayer)
+

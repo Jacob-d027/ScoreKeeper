@@ -7,7 +7,18 @@
 
 import Foundation
 
-class Player: Comparable {
+struct Player: Comparable {
+    
+    
+    var score: Int 
+    var name: String
+    
+    init(score: Int, name: String) {
+        self.score = score
+        self.name = name
+    }
+    
+    
     static func < (lhs: Player, rhs: Player) -> Bool {
         lhs.score < rhs.score
     }
@@ -19,10 +30,6 @@ class Player: Comparable {
     static func == (lhs: Player, rhs: Player) -> Bool {
         lhs.score == rhs.score
     }
-    
-    var score: Int = 0
-    var name: String = "Player"
-    
 }
 
-var listOfPlayers: [Player] = [Player()]
+var listOfPlayers = [Player]()

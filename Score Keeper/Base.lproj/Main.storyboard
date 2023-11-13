@@ -62,6 +62,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7d-Th-IMj">
                                         <rect key="frame" x="20" y="236" width="353" height="34.333333333333314"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Save Player"/>
+                                        <connections>
+                                            <action selector="savePlayerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QuN-1D-amz"/>
+                                            <segue destination="w8Z-e2-RJf" kind="unwind" identifier="savePlayer" unwindAction="unwindToPlayerTableViewControllerWithSegue:" id="SD8-DA-UPC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -85,8 +89,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Player" id="VJG-u6-1dY"/>
+                    <connections>
+                        <outlet property="playerNameTextField" destination="aw8-Iu-sd4" id="Qgm-2E-UEd"/>
+                        <outlet property="playerScoreTextField" destination="QI2-Cu-pPD" id="pab-V7-1eI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="w8Z-e2-RJf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1997.709923664122" y="3.5211267605633805"/>
         </scene>
