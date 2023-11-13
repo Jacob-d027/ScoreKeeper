@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol PlayerTableViewCellDelegate: AnyObject {
+    func stepperDidTap(in cell: PlayerTableViewCell, with value: Double)
+}
+
 class PlayerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var scoreCountLabel: UILabel!
     
+    weak var delegate: PlayerTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,11 +30,8 @@ class PlayerTableViewCell: UITableViewCell {
     }
     
     @IBAction func stepperWasTapped(_ sender: UIStepper) {
-        if let scoreAsDouble = Double(scoreCountLabel.text ?? "0") {
-            
-        }
-        print(sender.value)
-        
+        delegate?.stepperDidTap(in: self, with: sender.value)
+        sender.value = 0
     }
     
 

@@ -12,6 +12,10 @@ class Player: Comparable {
         lhs.score < rhs.score
     }
     
+    static func > (lhs: Player, rhs: Player) -> Bool {
+        lhs.score > rhs.score
+    }
+    
     static func == (lhs: Player, rhs: Player) -> Bool {
         lhs.score == rhs.score
     }

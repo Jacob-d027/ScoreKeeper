@@ -92,6 +92,26 @@ class PlayersTableViewController: UITableViewController {
         return ViewController(coder: coder, player: nil)
     }
     
+    @IBAction func unwindToPlayerTableViewController(segue: UIStoryboardSegue) {
+        guard segue.identifier == "savePlayer", 
+        let sourceVC = segue.source as? ViewController,
+        let player = sourceVC.player  else { return }
+        
+        listOfPlayers.append(player)
+//        tableView.insertRows(at: [IndexPath(row: (listOfPlayers.count - 1), section: 0)], with: .automatic)
+        listOfPlayers.sort(by: >)
+        tableView.reloadData()
+//        tableView.reloadRows(at: [], with: .automatic)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedRow = tableView.indexPathForSelectedRow else { return }
+        let selectedPlayer = listOfPlayers[selectedRow.row]
+        
+        tableView.deselectRow(at: selectedRow, animated: true)
+    }
+    
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
